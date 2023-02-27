@@ -3,9 +3,14 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
         .wrap {
             position: relative;
-            padding-top: 40%;
+            padding-top: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -14,14 +19,14 @@
             left: 0;
             top: 0;
             width: 100%;
-            height: 67%;
+            height: 100%;
             border: none;
         }
         #chart-container {
             position: fixed;
-            right: 5px;
-            bottom: 5px;
-            width: 40%;
+            right: 0;
+            bottom: 0;
+            width: 50%;
             height: 50%;
             z-index: 999;
             border: 2px solid black;
@@ -36,10 +41,10 @@
 </head>
 <body>
     <div class="wrap">
-        <iframe class="survey-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" Scrolling="no" allowfullscreen></iframe>
+        <iframe class="survey-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" allowfullscreen></iframe>
     </div>
     <div id="chart-container">
-        <iframe id="chart-iframe" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive"></iframe>
+        <iframe id="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" Scrolling=no></iframe>
     </div>
 </body>
 </html>
