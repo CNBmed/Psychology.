@@ -1,49 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        .wrap {
-            position: relative;
-            padding-top: 56.25%;
-            height: 0;
-            overflow: hidden;
-            width: 50%;
-            float: left;
-        }
-        .survey-iframe {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 50%;
-            border: none;
-        }
-        #chart-container {
-            position: relative;
-            width: 50%;
-            height: 100%;
-            overflow: hidden;
-            float: right;
-        }
-        #chart-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100vh;
+    }
+    
+    .form-wrapper {
+      flex: 1 1 50%;
+      height: 50%;
+      padding: 10px;
+    }
+    
+    .chart-wrapper {
+      flex: 1 1 50%;
+      height: 50%;
+      padding: 10px;
+      position: relative;
+    }
+    
+    .chart-container {
+      height: 100%;
+      border: 2px solid black;
+      overflow: hidden;
+    }
+    
+    .chart-iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .form-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-wrap: nowrap;
+        height: auto;
+        flex-direction: column;
+      }
+      
+      .form-wrapper,
+      .chart-wrapper {
+        flex-basis: auto;
+        height: 50vh;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="wrap">
-        <iframe class="survey-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" allowfullscreen></iframe>
+  <div class="container">
+    <div class="form-wrapper">
+      <iframe class="form-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" allowfullscreen></iframe>
     </div>
-    <div id="chart-container">
-        <iframe id="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" scrolling="no"></iframe>
+    <div class="chart-wrapper">
+      <div class="chart-container">
+        <iframe class="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" scrolling="no"></iframe>
+      </div>
     </div>
+  </div>
 </body>
 </html>
