@@ -13,24 +13,23 @@
             padding-top: 56.25%;
             height: 0;
             overflow: hidden;
+            width: 50%;
+            float: left;
         }
         .survey-iframe {
             position: absolute;
             left: 0;
             top: 0;
             width: 100%;
-            height: 100%;
+            height: 50%;
             border: none;
         }
         #chart-container {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            width: 100%;
+            position: relative;
+            width: 50%;
             height: 100%;
-            z-index: 999;
-            border: 2px solid black;
             overflow: hidden;
+            float: right;
         }
         #chart-iframe {
             width: 100%;
@@ -44,7 +43,7 @@
         <iframe class="survey-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" allowfullscreen></iframe>
     </div>
     <div id="chart-container">
-        <iframe id="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" Scrolling=no></iframe>
+        <iframe id="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" scrolling="no"></iframe>
     </div>
 </body>
 </html>
