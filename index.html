@@ -53,21 +53,17 @@
       height: 100%;
       border: none;
     }
-    
-    .link-wrapper {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-    }
-    
-    .link-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      text-decoration: none;
+
+    .chart-link {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
       font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: blue;
+      padding: 10px;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -91,18 +87,27 @@
   <div class="container">
     <div class="form-wrapper">
       <iframe class="form-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" allowfullscreen></iframe>
-      <div class="link-wrapper">
-        <a href="#chart" class="link-button">Go to chart</a>
-      </div>
     </div>
-    <div id="chart" class="chart-wrapper">
+    <div class="chart-wrapper">
       <div class="chart-container">
-        <iframe class="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" scrolling="no"></iframe>
-      </div>
-      <div class="link-wrapper">
-        <a href="#form" class="link-button">Go to form</a>
+        <iframe class="chart-iframe" src="" scrolling="no"></iframe>
+        <div class="chart-link">View Chart</div>
       </div>
     </div>
   </div>
-</body>
-</html>
+
+  <script>
+    const formIframe = document.querySelector('.form-iframe');
+    const chartIframe = document.querySelector('.chart-iframe');
+    const chartLink = document.querySelector('.chart-link');
+
+    formIframe.addEventListener('load', () => {
+      // Show chart link after form submission
+      formIframe.contentWindow.document.querySelector('form').addEventListener('submit', () => {
+        chartLink.style.display = 'block';
+      });
+    });
+
+    chartLink.addEventListener('click', () => {
+      // Open chart in new window
+      window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1
