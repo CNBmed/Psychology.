@@ -22,16 +22,23 @@
     
     .form-wrapper {
       flex: 1 1 50%;
-      height: 55vh;
+      height: 100%;
       padding: 10px;
     }
     
     .chart-wrapper {
       flex: 1 1 50%;
-      height: 45vh;
+      height: 100%;
       padding: 10px;
       position: relative;
     }
+    
+    .chart-container {
+      height: 100%;
+      border: 2px solid black;
+      overflow: hidden;
+    }
+    
     .chart-iframe {
       position: absolute;
       left: 0;
@@ -45,6 +52,24 @@
       width: 100%;
       height: 100%;
       border: none;
+    }
+    
+    .link-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .link-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
     }
     
     @media screen and (max-width: 768px) {
@@ -65,11 +90,17 @@
 <body>
   <div class="container">
     <div class="form-wrapper">
-      <iframe class="form-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" scrolling="no" allowfullscreen></iframe>
+      <iframe class="form-iframe" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" allowfullscreen></iframe>
+      <div class="link-wrapper">
+        <a href="#chart" class="link-button">Go to chart</a>
+      </div>
     </div>
-    <div class="chart-wrapper">
+    <div id="chart" class="chart-wrapper">
       <div class="chart-container">
-        <iframe width="382" height="280" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRL7QMNz8nuA4Y-qxMNrsO_vic2O4gOO3qew0iVZ6H39HrbPCk_R9A4CoSSVCmblujZ4S99xet2kg0C/pubchart?oid=1507269654&amp;format=interactive"></iframe>
+        <iframe class="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" scrolling="no"></iframe>
+      </div>
+      <div class="link-wrapper">
+        <a href="#form" class="link-button">Go to form</a>
       </div>
     </div>
   </div>
