@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,7 +25,19 @@
         padding: 10px;
         display: none;
       }
-
+        
+      .tab-menu {
+        display: flex;
+        }
+        
+      .tab-menu a {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        }
+        
       .tab.active {
         display: block;
       }
@@ -68,6 +79,11 @@
     </style>
   </head>
   <body>
+    <div class="tab-menu">
+      <a href="#greeting-tab">인사말 </a>
+      <a href="#form-tab">form </a>
+      <a href="#chart-tab">chart </a>
+    </div>
     <div class="container">
       <button class="tab-button" onclick="openTab(event '인사말')">인사말</button>
       <button class="tab-button active" onclick="openTab('form')">Form</button>
