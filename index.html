@@ -13,11 +13,12 @@
         font-family: Arial, sans-serif;
         font-size: 16px;
       }
-      
+
       .container {
         display: flex;
         flex-wrap: wrap;
         height: 100vh;
+      }
 
       .tab {
         flex: 1;
@@ -25,23 +26,31 @@
         padding: 10px;
         display: none;
       }
-        
+
       .tab-menu {
         display: flex;
-        }
-        
+        justify-content: center;
+        align-items: center;
+        background-color: #eee;
+        border: 1px solid #ccc;
+      }
+
       .tab-menu a {
         flex: 1;
         text-align: center;
         padding: 10px;
         background-color: #eee;
         border: 1px solid #ccc;
-        }
-        
+      }
+
+      .tab-menu a.active {
+        background-color: #ccc;
+      }
+
       .tab.active {
         display: block;
       }
-      
+
       .tab-button {
         background-color: #f1f1f1;
         border: none;
@@ -51,18 +60,12 @@
         display: block;
         text-align: center;
         flex: 1;
+        margin: 10px;
+      }
 
       .tab-button.active {
         background-color: #ccc;
       }
-      
-      .tab-button:nth-child(1) {
-        background-color: blue;
-      }  
-
-      .tab-button:nth-child(2) {
-        background-color: yellow;
-      }  
 
       @media screen and (max-width: 768px) {
         .container {
