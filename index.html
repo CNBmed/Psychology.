@@ -19,11 +19,9 @@
         display: flex;
         flex-wrap: wrap;
         height: 100vh;
-        flex-direction: column;
-      }
 
       .tab {
-        flex: 1 1 50%;
+        flex: 1;
         height: 100%;
         padding: 10px;
         display: none;
@@ -57,14 +55,14 @@
 
       @media screen and (max-width: 768px) {
         .container {
-          flex-wrap: nowrap;
+          flex-wrap: wrap;
           height: auto;
           flex-direction: column;
         }
 
         .tab {
           flex-basis: auto;
-          height: 50vh;
+          height: auto;
         }
       }
     </style>
