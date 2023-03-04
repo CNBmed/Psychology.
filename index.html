@@ -1,87 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Website</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-		}
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding: 20px;
-		}
-		.tabs {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 20px;
-		}
+	<meta charset="utf-8">
+	<title>Survey and Chart Tabs</title>
+	<style type="text/css">
 		.tab {
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 5px 5px 0 0;
-			background-color: #f2f2f2;
+			overflow: hidden;
+			background-color: #f1f1f1;
+			margin-top: 20px;
+		}
+		.tab button {
+			background-color: inherit;
+			float: left;
+			border: none;
+			outline: none;
 			cursor: pointer;
-			margin-right: 10px;
+			padding: 14px 16px;
+			transition: 0.3s;
+			font-size: 17px;
 		}
-		.tab.active {
-			background-color: #fff;
-			border-bottom: none;
+		.tab button:hover {
+			background-color: #ddd;
 		}
-		.tab-content {
-			display: none;
-			width: 100%;
-			height: 500px;
-			border: 1px solid #ccc;
-			padding: 10px;
-			box-sizing: border-box;
+		.tab button.active {
+			background-color: #ccc;
 		}
-		.tab-content.active {
+		#survey-form {
 			display: block;
+			margin: 0 auto;
+			width: 80%;
+			height: 600px;
+			border: none;
 		}
-		iframe {
-			width: 100%;
-			height: 100%;
+		#chart {
+			display: block;
+			margin: 0 auto;
+			width: 80%;
+			height: 500px;
 			border: none;
 		}
 	</style>
 </head>
 <body>
-	<div class="container">
-		<div class="tabs">
-			<div class="tab active" data-tab="survey">Survey</div>
-			<div class="tab" data-tab="chart">Chart</div>
-		</div>
-		<div class="tab-content active" data-tab="survey">
-			<div class="survey-iframe-wrapper">
-				<iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G"></iframe>
-			</div>
-		</div>
-		<div class="tab-content" data-tab="chart">
-			<div class="chart-iframe-wrapper">
-				<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-			</div>
-		</div>
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'Survey')">Survey</button>
+		<button class="tablinks" onclick="openTab(event, 'Chart')">Chart</button>
 	</div>
-
-<script>
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-  document.getElementById("defaultOpen").click();
-</script>
-
-
+	<div id="Survey" class="tabcontent">
+		<iframe id="survey-form" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G"></iframe>
+	</div>
+	<div id="Chart" class="tabcontent">
+		<iframe id="chart" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+	</div>
+	<script type="text/javascript">
+		function openTab(evt, tabName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(tabName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+		document.getElementsByClassName("tablinks")[0].click();
+	</script>
+</body>
+</html>
