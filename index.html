@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>행동활성화</title>
+	<title>My App</title>
 	<style>
 		body {
 			margin: 0;
@@ -75,10 +75,6 @@
 		.home-content p {
 			margin-bottom: 0;
 		}
-		
-		p {
-			font-size: 16px;
-		}
 	</style>
 </head>
 <body>
@@ -92,25 +88,24 @@
 		<a href="#" class="tablink" onclick="openTab(event, 'chart')">Chart</a>
 	</nav>
 
-	<div class="home-content">
-		<h1>OOO님 환영합니다.</h1>
-		<p>OOO님의 n주차 목표는 다음과 같습니다.</p>
-		<p>1. 운동복 사기</p>
-		<p>2. 산책코스 알아보기</p>
-		<p>3. 산책 10분 이상 2번 하기</p>
+	<div id="home" class="tabcontent">
+		<div class="home-content">
+			<h1>OOO님 환영합니다.</h1>
+			<p>저희 ~~~~~~~~~~~~ 입니다.</p>
+		</div>
 	</div>
-	
+
 	<div id="survey" class="tabcontent">
 		<h2>Survey</h2>
-		<iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" style="max-width: 100%; height: 100%;"></iframe>
+		<iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G"></iframe>
 	</div>
 
 	<div id="chart" class="tabcontent">
 		<h2>Chart</h2>
-		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" style="max-width: 100%; height: 100%;"></iframe>
+		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 	</div>
-	
-		<script>
+
+	<script>
 		function openTab(evt, tabName) {
 			var i, tabcontent, tablinks;
 			tabcontent = document.getElementsByClassName("tabcontent");
@@ -127,5 +122,6 @@
 			evt.currentTarget.className += " active";
 		}
     </script>
+
 </body>
 </html>
