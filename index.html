@@ -92,14 +92,17 @@
 		<a href="#" class="tablink" onclick="openTab(event, 'chart')">Chart</a>
 	</nav>
 
-	<div id="home" class="tabcontent">
-		<div class="home-content">
-			<h1>OOO님 환영합니다.</h1>
-			<p>OOO님의 n주차 목표는 다음과 같습니다.</p>
-			<p>1. 운동복 사기</p>
-			<p>2. 산책코스 알아보기</p>
-			<p>3. 산책 10분 이상 2번 하기</p>
-		</div>
+	<div class="home-content">
+		<h1>OOO님 환영합니다.</h1>
+		<p>OOO님의 n주차 목표는 다음과 같습니다.</p>
+		<p>1. 운동복 사기</p>
+		<p>2. 산책코스 알아보기</p>
+		<p>3. 산책 10분 이상 2번 하기</p>
+		<form>
+			<label for="activity">활동 유무:</label>
+			<input type="checkbox" id="activity" name="activity" value="yes">
+		</form>
+	</div>
 	</div>
 	
 	<div id="survey" class="tabcontent">
@@ -109,26 +112,34 @@
 
 	<div id="chart" class="tabcontent">
 		<h2>Chart</h2>
+		<img id="chart-image" src="https://via.placeholder.com/150" style="max-width: 100%; height: 100%;">
 		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" style="max-width: 100%; height: 100%;"></iframe>
 	</div>
 
 	<script>
 		function openTab(evt, tabName) {
-			var i, tabcontent, tablinks;
-			tabcontent = document.getElementsByClassName("tabcontent");
-			tablinks = document.getElementsByClassName("tablinks");
+	var i, tabcontent, tablinks;
+	tabcontent = document.getElementsByClassName("tabcontent");
+	tablinks = document.getElementsByClassName("tablinks");
 
-			for (i = 0; i < tabcontent.length; i++) {
-				tabcontent[i].style.display = "none";
-			}
-			for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			}
+	for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	}
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
 
-			document.getElementById(tabName).style.display = "block";
-			evt.currentTarget.className += " active";
-		}
-    </script>
+	document.getElementById(tabName).style.display = "block";
+	evt.currentTarget.className += " active";
+	
+	if (tabName === "chart") {
+		var activity = document.getElementById("activity").checked;
+		var imageSrc = activity ? "https://postfiles.pstatic.net/MjAyMzAyMjBfMjMz/MDAxNjc2ODY5MTI4MjI5.zNwj7jBmZLFw94YiW7RY5yZKyFSdLjgYaAljXLTYmXQg.O6p..." : "https://via.placeholder.com/150";
+		var chartImage = document.getElementById("chart-image");
+		chartImage.setAttribute("src", imageSrc);
+	}
+}
+</script>
 
 </body>
 </html>
