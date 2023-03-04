@@ -1,115 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
 
-      body {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-      }
-      
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        height: 100vh;
-      }
-      
-      .tab {
-        flex: 1;
-        height: 100%;
-        padding: 10px;
-        display: none;
-      }
-        
-      .tab-menu {
-        display: flex;
-      }
-        
-      .tab-menu a {
-        flex: 1;
-        text-align: center;
-        padding: 10px;
-        background-color: #eee;
-        border: 1px solid #ccc;
-      }
-        
-      .tab.active {
-        display: block;
-      }
-      
-      .tab-button {
-        background-color: #f1f1f1;
-        border: none;
-        color: black;
-        padding: 10px 20px;
-        cursor: pointer;
-        display: block;
-        text-align: center;
-        flex: 1;
-      }
+<head>
+  <meta charset="UTF-8">
+  <title>Survey and Chart</title>
 
-      .tab-button.active {
-        background-color: #ccc;
-      }
-      
-      .tab-button:nth-child(1) {
-        background-color: blue;
-      }  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
 
-      .tab-button:nth-child(2) {
-        background-color: yellow;
-      }  
+    #tabs {
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
 
-      @media screen and (max-width: 768px) {
-        .container {
-          flex-wrap: wrap;
-          height: auto;
-          flex-direction: column;
-        }
+    #tabs button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
 
-        .tab {
-          flex-basis: auto;
-          height: auto;
-        }
+    #tabs button:hover {
+      background-color: #ddd;
+    }
+
+    #tabs button.active {
+      background-color: #ccc;
+    }
+
+    #survey-tab {
+      display: block;
+    }
+
+    #chart-tab {
+      display: none;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 48px);
+      border: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="tabs">
+    <button class="tablinks" onclick="openTab(event, 'survey-tab')" id="defaultOpen">Survey</button>
+    <button class="tablinks" onclick="openTab(event, 'chart-tab')">Chart</button>
+  </div>
+
+  <div id="survey-tab">
+    <iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G"></iframe>
+  </div>
+
+  <div id="chart-tab">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
       }
-    </style>
-  </head>
-  <body>
-    <div class="tab-menu">
-      <a href="#greeting-tab">인사말 </a>
-      <a href="#form-tab">form </a>
-      <a href="#chart-tab">chart </a>
-    </div>
-    <div class="container">
-      <button class="tab-button" onclick="openTab('인사말')">인사말</button>
-      <button class="tab-button active" onclick="openTab('form')">Form</button>
-      <button class="tab-button" onclick="openTab('chart')">Chart</button>
-      <div id="form" class="tab active">
-        <iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
-      </div>
-      <div id="chart" class="tab">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" style="width:100%; height:100%; border:none;"></iframe>
-      </div>
-    </div>
-    <script>
-      function openTab(tabName) {
-        const tabs = document.getElementsByClassName('tab');
-        const buttons = document.getElementsByClassName('tab-button');
-        for (let i = 0; i < tabs.length; i+) {
-          tabs[i].classList.remove('active');
-        }
-        for (let i = 0; i < buttons.length; i+) {
-          buttons[i].classList.remove('active');
-        }
-        document.getElementById(tabName + '-tab').classList.add('active');
-        event.currentTarget.classList.add('active');
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
-    </script>
-  </body>
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    document.getElementById("defaultOpen").click();
+  </script>
+</body>
 </html>
