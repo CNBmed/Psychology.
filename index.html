@@ -99,6 +99,10 @@
 			<p>2. 산책코스 알아보기</p>
 			<p>3. 산책 10분 이상 2번 하기</p>
 		</div>
+		<div class="checkbox-container">
+			<label for="activity">활동 유무:</label>
+			<input type="checkbox" id="activity">
+		</div>
 	</div>
 
 	<div id="survey" class="tabcontent">
@@ -126,6 +130,18 @@
 
 			document.getElementById(tabName).style.display = "block";
 			evt.currentTarget.className += " active";
+			
+			if (tabName === "chart") {
+				var activity = document.getElementById("activity").checked;
+				var imageSrc = activity ? "https://postfiles.pstatic.net/MjAyMzAyMjBfMjMz/MDAxNjc2ODY5MTI4MjI5.zNwj7jBmZLFw94YiW7RY5yZKyFSdLjgYaAljXLTYmXQg.O6p..." : "https://via.placeholder.com/150";
+				var chartImage = document.getElementById("chart-image");
+				chartImage.setAttribute("src", imageSrc);
+			}
+			else if (tabName === "home") {
+				document.querySelector('.checkbox-container').style.display = 'block';
+			} else {
+				document.querySelector('.checkbox-container').style.display = 'none';
+			}
 		}
     </script>
 
