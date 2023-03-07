@@ -75,6 +75,7 @@
 		.home-content p {
 			margin-bottom: 0;
 		}
+		
 		p {
 			font-size: 16px;
 		}
@@ -99,26 +100,16 @@
 			<p>2. 산책코스 알아보기</p>
 			<p>3. 산책 10분 이상 2번 하기</p>
 		</div>
-		<div class="form-group">
-			<label for="inputCheckbox">선택:</label>
-			<select class="form-control" id="inputSelect">
-				<option value="O">O</option>
-				<option value="X">X</option>
-			</select>
-		</div>
 	</div>
-
+	
 	<div id="survey" class="tabcontent">
 		<h2>Survey</h2>
-		<iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G"></iframe>
+		<iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" style="max-width: 100%; height: 100%;"></iframe>
 	</div>
 
 	<div id="chart" class="tabcontent">
 		<h2>Chart</h2>
-		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-	</div>
-	<div class="image-container">
-		<img class="image" src="" alt="">
+		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" style="max-width: 100%; height: 100%;"></iframe>
 	</div>
 
 	<script>
@@ -136,20 +127,6 @@
 
 			document.getElementById(tabName).style.display = "block";
 			evt.currentTarget.className += " active";
-			
-			if (tabName === "chart") {
-				updateChartImage();
-			}
-		}
-		const select = document.getElementById("inputSelect");
-		const selectedValue = select.value;
-		const image = document.querySelector(".image");
-		if (selectedValue === "O") {
-			image.src = "https://postfiles.pstatic.net/MjAyMzAyMjBfMTE3/MDAxNjc2ODYxNjMzNTE1.VVCAYWOJxj0QXVqQzaac_yTYSY3_MNqKSw0DREkECfIg.BZpcyAreYP42sfuQZmAWqaWYkcXhkAsakzc9qaC8y1Eg.GIF.rmaghrkd77/%EA%B8%8D%EC%A0%95%EC%A0%81_%ED%94%BC%EB%93%9C%EB%B0%B1.gif?type=w966"
-			image.alt = "O";
-		} else if (selectedValue === "X") {
-			image.src = "https://postfiles.pstatic.net/MjAyMzAyMjBfODAg/MDAxNjc2ODcyNDg0NDA0.IbKsFLXsROAMf4mIMAIUV5zChWq4DRv6U2ulsawtWuQg.pgrtiKMKRx6JFuQL3bMvrna7JZdzdux2XoRLHcC4lIYg.GIF.rmaghrkd77/%EB%B6%80%EC%A0%95%EC%A0%81_%ED%94%BC%EB%93%9C%EB%B0%B11.gif?type=w966"
-			image.alt = "X";
 		}
     </script>
 
