@@ -111,23 +111,34 @@
 		<h2>Chart</h2>
 		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" style="max-width: 100%; height: 100%;"></iframe>
 	</div>
+	  <div class="arrow-container">
+    <div class="arrow arrow-left"></div>
+    <div class="arrow arrow-right"></div>
+  </div>
+</div>
 
 	<script>
-		function openTab(evt, tabName) {
-			var i, tabcontent, tablinks;
-			tabcontent = document.getElementsByClassName("tabcontent");
-			tablinks = document.getElementsByClassName("tablinks");
+const sections = document.querySelectorAll('.section');
+const arrowLeft = document.querySelector('.arrow-left');
+const arrowRight = document.querySelector('.arrow-right');
+let currentIndex = 0;
 
-			for (i = 0; i < tabcontent.length; i++) {
-				tabcontent[i].style.display = "none";
-			}
-			for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			}
+showSection(currentIndex);
 
-			document.getElementById(tabName).style.display = "block";
-			evt.currentTarget.className += " active";
-		}
+arrowLeft.addEventListener('click', () => {
+  currentIndex = (currentIndex === 0) ? sections.length - 1 : currentIndex - 1;
+  showSection(currentIndex);
+});
+
+arrowRight.addEventListener('click', () => {
+  currentIndex = (currentIndex === sections.length - 1) ? 0 : currentIndex + 1;
+  showSection(currentIndex);
+});
+
+function showSection(index) {
+  sections.forEach((section) => section.classList.remove('active'));
+  sections[index].classList.add('active');
+}
     </script>
 
 </body>
