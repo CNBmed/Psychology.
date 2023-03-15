@@ -19,6 +19,27 @@
 			text-align: center;
 		}
 
+		.container {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end
+		}
+
+		.button-container {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.prev-btn {
+			position: relative;
+			left: -1100px;
+		}
+
+		.next-btn {
+			position: relative;
+			left: -300px;
+		}
+
 		nav {
 			background-color: #f1f1f1;
 			overflow: hidden;
@@ -42,6 +63,22 @@
 			border-bottom: 2px solid #333;
 		}
 
+		.prev-btn,
+		.next-btn {
+			padding: 10px 20px;
+			font-size: 16px;
+			color: #fff;
+			background-color: #00bfff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		.prev-btn:hover,
+		.next-btn:hover {
+			background-color: #333;
+		}
+		
 		.tabcontent {
 			display: none;
 			padding: 20px;
@@ -57,27 +94,8 @@
 			height: 100%;
 		}
 
-		.tabcontent h2 {
-			margin-top: 0;
-		}
-
-		.home-content {
-			padding: 20px;
-			text-align: center;
-			margin: 50px;
-			background-color: #f1f1f1;
-		}
-
-		.home-content h1 {
-			margin-top: 0;
-		}
-
-		.home-content p {
-			margin-bottom: 0;
-		}
-		
-		p {
-			font-size: 16px;
+		.active {
+			font-weight: bold;
 		}
 	</style>
 </head>
@@ -85,40 +103,35 @@
 	<header>
 		<h1>행동활성화 프로그램</h1>
 	</header>
-
-	<div id="home" class="tabcontent">
-		<div class="home-content">
-			<h1>OOO님 환영합니다.</h1>
-			<p>OOO님의 n주차 목표는 다음과 같습니다.</p>
-			<p>1. 운동복 사기</p>
-			<p>2. 산책코스 알아보기</p>
-			<p>3. 산책 10분 이상 2번 하기</p>
-		</div>
-	</div>
 	
-	<div id="survey" class="tabcontent">
-		<h2>Survey</h2>
-		<iframe src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" style="max-width: 100%; height: 100%;"></iframe>
-	</div>
+	<nav>
+		<a href="#" class="tablink" onclick="openTab(event, '왈라폼')">왈라폼</a>
+		<a href="#" class="tablink" onclick="openTab(event, '차트')">차트</a>
+	</nav>
 
-	<div id="chart" class="tabcontent">
-		<h2>Chart</h2>
-		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDqhh-XzA0ekUKy7E3oRBv2e-wAxPsFyNfpt91P4TnqE_Q0rBoACk8WFSG1c60cz_DLjYKo497zpRn/pubchart?oid=1507269654&amp;format=interactive&amp;range=P49:Q58&amp;single=true&amp;widget=true&amp;headers=false" style="max-width: 100%; height: 100%;"></iframe>
-	</div>
+	<iframe id=iframe1" src="https://walla.my/survey/FhYYDgZJzlcv103oG78G" width="1600" height="440" frameborder="0" style="display:block;"></iframe>
+
+	<div style="width: 650px; margin: 0 auto;">
+    <iframe id="iframe2" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRL7QMNz8nuA4Y-qxMNrsO_vic2O4gOO3qew0iVZ6H39HrbPCk_R9A4CoSSVCmblujZ4S99xet2kg0C/pubchart?oid=759156912&amp;format=interactive" width="1000" height="440" frameborder="0" scrolling=no style="display:none;"></iframe>
+    </div>
+
+	<div style="width: 650px; margin: 0 auto;">
+	<iframe id="iframe3" src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=H31:M53" width="750" height="600" frameborder="0" style="display:none;"></iframe>
+    </div>
 	
-   <button onclick="previous()">이전</button>
-    <button onclick="next()">다음</button>
-
+	<div class="container">
+		<div class="button-container">
+    <button class="prev-btn" onclick="previous()">이전</button>
+    <button class="next-btn" onclick="next()";>다음</button>
+    </div>
+</div>
+	
 	<script>
 		const iframes = document.getElementsByTagName('iframe');
 		let index = 0;
 
 iframes[0].style.display = 'block';
 document.querySelector('button:first-of-type').style.display = 'none';
-
-nextButton.addEventListener('click', () => {
-    myIframe.contentWindow.location.reload();
-  });
 
 if (iframes.length === 1) {
   document.querySelector('button:first-of-type').style.display = 'none';
