@@ -25,6 +25,60 @@
 			justify-content: flex-end
 		}
 
+		.button-container {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.prev-btn {
+			position: relative;
+			left: -1100px;
+		}
+
+		.next-btn {
+			position: relative;
+			left: -300px;
+		}
+
+		nav {
+			background-color: #f1f1f1;
+			overflow: hidden;
+		}
+
+		nav a {
+			float: left;
+			display: block;
+			color: #333;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-weight: bold;
+			font-size: 18px;
+			border-bottom: 2px solid transparent;
+		}
+
+		nav a:hover {
+			background-color: #ddd;
+			color: #333;
+			border-bottom: 2px solid #333;
+		}
+
+		.prev-btn,
+		.next-btn {
+			padding: 10px 20px;
+			font-size: 16px;
+			color: #fff;
+			background-color: #00bfff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		.prev-btn:hover,
+		.next-btn:hover {
+			background-color: #333;
+		}
+		
 		.tabcontent {
 			display: none;
 			padding: 20px;
@@ -45,5 +99,73 @@
 		}
 	</style>
 </head>
+<body>
+	<header>
+		<h1>차트</h1>
+	</header>
+	
+	<nav>
+		<a href="#" class="tablink" onclick="openTab(event, '차트')">차트</a>
+	</nav>
+
+	<div style="width: 650px; margin: 0 auto;">
 	<iframe id="iframe3" src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=H31:M53" width="750" height="600" frameborder="0" style="display:none;"></iframe>
-</html>
+    </div>
+	
+	<div class="container">
+		<div class="button-container">
+    <button class="prev-btn" onclick="previous()">이전</button>
+    <button class="next-btn" onclick="next()";>다음</button>
+    </div>
+</div>
+	
+	<script>
+		const iframes = document.getElementsByTagName('iframe');
+		let index = 0;
+
+iframes[0].style.display = 'block';
+document.querySelector('button:first-of-type').style.display = 'none';
+
+if (iframes.length === 1) {
+  document.querySelector('button:first-of-type').style.display = 'none';
+  document.querySelector('button:last-of-type').style.display = 'none';
+} else if (index === 0) {
+  document.querySelector('button:first-of-type').style.display = 'none';
+} else if (index === iframes.length - 1) {
+  document.querySelector('button:last-of-type').style.display = 'none';
+}
+
+function next() {
+  iframes[index].style.display = 'none';
+  index = (index + 1) % iframes.length;
+  iframes[index].style.display = 'block';
+  if (index === 0) {
+    document.querySelector('button:first-of-type').style.display = 'none';
+    document.querySelector('button:last-of-type').style.display = 'block';
+  } else if (index === iframes.length - 1) {
+    document.querySelector('button:last-of-type').style.display = 'none';
+    document.querySelector('button:first-of-type').style.display = 'block';
+  } else {
+    document.querySelector('button:first-of-type').style.display = 'block';
+    document.querySelector('button:last-of-type').style.display = 'block';
+  }
+}
+
+function previous() {
+  iframes[index].style.display = 'none';
+  index = (index - 1 + iframes.length) % iframes.length;
+  iframes[index].style.display = 'block';
+  if (index === 0) {
+    document.querySelector('button:first-of-type').style.display = 'none';
+    document.querySelector('button:last-of-type').style.display = 'block';
+  } else if (index === iframes.length - 1) {
+    document.querySelector('button:last-of-type').style.display = 'none';
+    document.querySelector('button:first-of-type').style.display = 'block';
+  } else {
+    document.querySelector('button:first-of-type').style.display = 'block';
+    document.querySelector('button:last-of-type').style.display = 'block';
+  }
+}
+</script>
+</body>
+  </html>
