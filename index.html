@@ -108,57 +108,9 @@
 		<a href="#" class="tablink" onclick="openTab(event, '')"></a>
 	</nav>
 
-	<iframe src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=H31:M53" width="800" height="650" frameborder="0" style="display:none;"></iframe>
+	<iframe src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=M76:V104" width="800" height="650" frameborder="0" style="display:none;"></iframe>
 	
 	<iframe src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=X43" width="400" height="300" frameborder="0" style="display:none;"></iframe>
 	
-	<script>
-		const iframes = document.getElementsByTagName('iframe');
-		let index = 0;
-
-iframes[0].style.display = 'block';
-document.querySelector('button:first-of-type').style.display = 'none';
-
-if (iframes.length === 1) {
-  document.querySelector('button:first-of-type').style.display = 'none';
-  document.querySelector('button:last-of-type').style.display = 'none';
-} else if (index === 0) {
-  document.querySelector('button:first-of-type').style.display = 'none';
-} else if (index === iframes.length - 1) {
-  document.querySelector('button:last-of-type').style.display = 'none';
-}
-
-function next() {
-  iframes[index].style.display = 'none';
-  index = (index + 1) % iframes.length;
-  iframes[index].style.display = 'block';
-  if (index === 0) {
-    document.querySelector('button:first-of-type').style.display = 'none';
-    document.querySelector('button:last-of-type').style.display = 'block';
-  } else if (index === iframes.length - 1) {
-    document.querySelector('button:last-of-type').style.display = 'none';
-    document.querySelector('button:first-of-type').style.display = 'block';
-  } else {
-    document.querySelector('button:first-of-type').style.display = 'block';
-    document.querySelector('button:last-of-type').style.display = 'block';
-  }
-}
-
-function previous() {
-  iframes[index].style.display = 'none';
-  index = (index - 1 + iframes.length) % iframes.length;
-  iframes[index].style.display = 'block';
-  if (index === 0) {
-    document.querySelector('button:first-of-type').style.display = 'none';
-    document.querySelector('button:last-of-type').style.display = 'block';
-  } else if (index === iframes.length - 1) {
-    document.querySelector('button:last-of-type').style.display = 'none';
-    document.querySelector('button:first-of-type').style.display = 'block';
-  } else {
-    document.querySelector('button:first-of-type').style.display = 'block';
-    document.querySelector('button:last-of-type').style.display = 'block';
-  }
-}
-</script>
 </body>
   </html>
