@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>차트</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
 			margin: 0;
@@ -21,42 +22,33 @@
 		.container {
 			display: flex;
 			flex-direction: row;
-			justify-content: flex-end
+			justify-content: flex-end;
+			align-items: center;
+			height: calc(100vh - 64px);
+			overflow-x: scroll;
+			white-space: nowrap;
+		}
+
+		iframe {
+			width: 80vw;
+			height: calc(100vh - 64px);
+			border: none;
+			margin: 0 5px;
 		}
 
 	</style>
-</head>
+	</head>
 	
-<body>
+	<body>
 	<header>
 		<h1>차트</h1>
 	</header>
 
-	<iframe src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=L73:W107" width="50%" height="640" frameborder="0"></iframe>
+	<div class="container">
+		<iframe src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=L73:W107"></iframe>
 	
-	<iframe src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=X43" width="50%" height="640" frameborder="0"></iframe>
+		<iframe src="https://docs.google.com/spreadsheets/d/1_cQWwXmhsK81c7qpZC42f1PnoOO_r4SkBDyt05Dc47U/edit#gid=981890324&range=X43"></iframe>
+	</div>
 	
-	<script>
-		var firstIframe = document.getElementsByTagName("iframe")[0];
-		firstIframe.addEventListener("load", function() {
-			firstIframe.contentWindow.document.addEventListener("scroll", function() {
-				var scrollTop = firstIframe.contentWindow.document.documentElement.scrollTop || firstIframe.contentWindow.document.body.scrollTop;
-				var sheetId = "981890324";
-				var range = "L73:W107";
-				var targetRow = Math.floor(scrollTop / 20) + 73;
-				firstIframe.contentWindow.location.hash = "#gid=" + sheetId + "&range=" + targetRow;
-			});
-		});
-		var secondIframe = document.getElementsByTagName("iframe")[0];
-		secondIframe.addEventListener("load", function() {
-			firstIframe.contentWindow.document.addEventListener("scroll", function() {
-				var scrollTop = secondIframe.contentWindow.document.documentElement.scrollTop || secondIframe.contentWindow.document.body.scrollTop;
-				var sheetId = "981890324";
-				var range = "X43";
-				var targetRow = Math.floor(scrollTop / 20) + 73;
-				secondIframe.contentWindow.location.hash = "#gid=" + sheetId + "&range=" + targetRow;
-			});
-		});
-	</script>
 	</body>
 </html>
